@@ -12,6 +12,7 @@
 
   ;; conditions
   (:export
+   #:stripe-error
    #:account-already-exists
    #:account-country-invalid-address
    #:account-invalid

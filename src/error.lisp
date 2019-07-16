@@ -4,7 +4,9 @@
   (let ((response (yason:parse (dex:response-body condition))))
     (destructuring-bind (&key error &allow-other-keys) response
       (destructuring-bind (&key code message &allow-other-keys) error
-        (values code
+        (values (or (when code
+                      (find-symbol (normalize-string code) :stripe2))
+                    'stripe-error)
                 message)))))
 
 (define-condition stripe-error (error)
