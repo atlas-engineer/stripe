@@ -1,9 +1,18 @@
 (in-package #:stripe)
 
+(defun json-boolean-p (x)
+  (or (eq x t)
+      (eq x :true)
+      (eq x :false)))
+
+(deftype json-boolean () '(satisfies json-boolean-p))
+
 (defgeneric encode-type (type value))
 
 (defmethod encode-type ((type (eql :boolean)) value)
-  (if value "true" "false"))
+  (ecase value
+    ((:true t) "true")
+    (:false "false")))
 
 (defmethod encode-type ((type (eql :number)) value)
   value)
@@ -21,14 +30,14 @@
   (flet ((normalize (string)
            (substitute #\_ #\- string :test #'char=)))
     (etypecase key
-      (keyword (string-downcase (normalize (symbol-name key))))
-      (string (normalize key)))))
+      (string (normalize key))
+      (keyword (normalize (string-downcase (symbol-name key)))))))
 
 (defun encode-value (value)
   (etypecase value
-    (boolean (encode-type :boolean value))
+    (json-boolean (encode-type :boolean value))
     (number (encode-type :number value))
-    ((or string keyword) (encode-type :string value))
+    (string (encode-type :string value))
     (local-time:timestamp (encode-type :timestamp value))
     (stripe-object (encode-type :object value))))
 
@@ -60,9 +69,9 @@
 
 (defun post-parameter (key value)
   (etypecase value
-    (boolean (list (encode-parameter :boolean key value)))
+    (json-boolean (list (encode-parameter :boolean key value)))
     (number (list (encode-parameter :number key value)))
-    ((or string keyword) (list (encode-parameter :string key value)))
+    (string (list (encode-parameter :string key value)))
     ((cons gu:plist (or null cons)) (encode-parameter :array key value))
     (gu:plist (encode-parameter :dictionary key value))
     (list (encode-parameter :list key value))
