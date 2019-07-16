@@ -23,4 +23,5 @@
      has-more)))
 
 (defun decode-timestamp (unix-time)
-  (local-time:unix-to-timestamp unix-time))
+  (when unix-time
+    (local-time:unix-to-timestamp unix-time)))
