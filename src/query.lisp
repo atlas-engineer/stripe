@@ -95,7 +95,8 @@
                       :content content)
        (dex:http-request-failed (condition)
          (gu:mvlet ((code message (decode-error condition)))
-           (error (intern (normalize-string code)) :message message)))))))
+           (error (intern (normalize-string code) :stripe)
+                  :message message)))))))
 
 (defun generate-url (template url-args query-args)
   (let* ((query (a:alist-plist (apply #'post-parameters query-args)))

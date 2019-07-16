@@ -17,7 +17,7 @@
     (values
      (mapcar
       (lambda (x)
-        (let ((type (intern (normalize-string (getf x :object)))))
+        (let ((type (intern (normalize-string (getf x :object)) :stripe)))
           (make-instance type :data x)))
       data)
      has-more)))
