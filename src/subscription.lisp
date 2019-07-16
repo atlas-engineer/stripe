@@ -14,6 +14,7 @@
   default-payment-method
   discount
   ended-at
+  id
   items
   latest-invoice
   plan
@@ -29,7 +30,7 @@
                                        &allow-other-keys)
   (destructuring-bind (&key billing-cycle-anchor cancel-at
                          canceled-at created current-period-end
-                         current-period-start discount ended-at plan start
+                         current-period-start discount ended-at items plan start
                          start-date trial-end trial-start &allow-other-keys)
       data
     (reinitialize-instance
@@ -42,6 +43,7 @@
      :current-period-start (decode-timestamp current-period-start)
      :discount (make-instance 'discount :data discount)
      :ended-at (decode-timestamp ended-at)
+     :items (decode-list items)
      :plan (make-instance 'plan :data plan)
      :start (decode-timestamp start)
      :start-date (decode-timestamp start-date)
