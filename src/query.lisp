@@ -100,7 +100,9 @@
 
 (defun generate-url (template url-args query-args)
   (let* ((query (a:alist-plist (apply #'post-parameters query-args)))
-         (query-char (and query (or (find #\? template :test #'char=) #\&))))
+         (query-char (and query (if (find #\? template :test #'char=)
+                                    #\&
+                                    #\?))))
     (format nil "~?~@[~c~{~a=~a~^&~}~]"
             template
             (mapcar #'encode-value url-args)
