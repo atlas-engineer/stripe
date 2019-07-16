@@ -5,7 +5,7 @@
     (destructuring-bind (&key error &allow-other-keys) response
       (destructuring-bind (&key code message &allow-other-keys) error
         (values (or (when code
-                      (find-symbol (normalize-string code) :stripe2))
+                      (find-symbol (normalize-string code) :stripe))
                     'stripe-error)
                 message)))))
 
