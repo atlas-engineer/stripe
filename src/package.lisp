@@ -10,7 +10,7 @@
    #:*api-version*
    #:*api-key*)
 
-  ;; error
+  ;; conditions
   (:export
    #:account-already-exists
    #:account-country-invalid-address
