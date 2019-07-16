@@ -39,9 +39,9 @@
         (encode-value value)))
 
 (defmethod encode-parameter ((type (eql :dictionary)) key value)
-  (loop :for (k v) :on (a:hash-table-plist value) :by #'cddr
+  (loop :for (k v) :on value :by #'cddr
         :for parameter = (string-downcase (format nil "~a[~a]" key k))
-        :if (typep v 'hash-table)
+        :if (typep v 'gu:plist)
           :append (encode-parameter :dictionary parameter v)
         :else
           :collect (encode-parameter nil parameter v)))
@@ -49,9 +49,8 @@
 (defmethod encode-parameter ((type (eql :array)) key value)
   (loop :for item :in value
         :for i :from 0
-        :for table = (a:plist-hash-table item :test #'eq)
         :for parameter = (string-downcase (format nil "~a[~a]" key i))
-        :append (encode-parameter :dictionary parameter table)))
+        :append (encode-parameter :dictionary parameter item)))
 
 (defmethod encode-parameter ((type (eql :list)) key value)
   (loop :for item :in value
@@ -64,8 +63,8 @@
     (boolean (list (encode-parameter :boolean key value)))
     (number (list (encode-parameter :number key value)))
     ((or string keyword) (list (encode-parameter :string key value)))
-    (hash-table (encode-parameter :dictionary key value))
     ((cons gu:plist (or null cons)) (encode-parameter :array key value))
+    (gu:plist (encode-parameter :dictionary key value))
     (list (encode-parameter :list key value))
     (local-time:timestamp (list (encode-parameter :timestamp key value)))
     (stripe-object (list (encode-parameter :object key value)))))

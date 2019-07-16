@@ -4,13 +4,11 @@
   (:local-nicknames (#:a #:alexandria)
                     (#:gu #:golden-utils))
   (:use #:cl)
-  (:import-from #:golden-utils #:dict)
 
   ;; common
   (:export
    #:*api-version*
-   #:*api-key*
-   #:dict)
+   #:*api-key*)
 
   ;; error
   (:export
