@@ -16,10 +16,11 @@
 
 (defmethod initialize-instance :after ((instance coupon) &key data
                                        &allow-other-keys)
-  (destructuring-bind (&key created &allow-other-keys) data
+  (destructuring-bind (&key created redeem-by &allow-other-keys) data
     (reinitialize-instance
      instance
-     :created (decode-timestamp created))))
+     :created (decode-timestamp created)
+     :redeem-by (decode-timestamp redeem-by))))
 
 (define-query create-coupon (:type coupon)
   (:post "coupons")
