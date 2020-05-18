@@ -1,4 +1,4 @@
-(in-package #:stripe)
+(in-package #:net.mfiano.lisp.stripe)
 
 (defun decode-error (condition)
   (let ((response (yason:parse (dex:response-body condition))))

@@ -1,4 +1,4 @@
-(in-package #:stripe)
+(in-package #:net.mfiano.lisp.stripe)
 
 (defvar *base-url* "https://api.stripe.com/v1")
 
@@ -10,7 +10,7 @@
   (substitute #\- #\_ (string-upcase string) :test #'char=))
 
 (defun normalize-json-key (string)
-  (a:make-keyword (normalize-string string)))
+  (u:make-keyword (normalize-string string)))
 
 (defun decode-list (list)
   (destructuring-bind (&key data has-more &allow-other-keys) list

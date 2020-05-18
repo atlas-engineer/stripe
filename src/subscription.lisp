@@ -1,4 +1,4 @@
-(in-package #:stripe)
+(in-package #:net.mfiano.lisp.stripe)
 
 (define-object subscription ()
   billing-cycle-anchor

@@ -1,4 +1,4 @@
-(in-package #:stripe)
+(in-package #:net.mfiano.lisp.stripe)
 
 (define-object sku ()
   id
@@ -25,7 +25,7 @@
       data
     (reinitialize-instance
      instance
-     :attributes (a:plist-hash-table attributes :test #'equal)
+     :attributes (u:plist->hash attributes :test #'equal)
      :created (decode-timestamp created)
      :inventory (make-instance 'sku-inventory :data inventory)
      :package-dimensions (make-instance 'package-dimensions
