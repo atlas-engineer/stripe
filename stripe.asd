@@ -3,8 +3,8 @@
   :author ("Michael Fiano <mail@mfiano.net>")
   :license "MIT"
   :homepage "https://mfiano.net/projects/stripe"
-  :source-control (:git "https://github.com/mfiano/stripe")
-  :bug-tracker "https://github.com/mfiano/stripe/issues"
+  :source-control (:git "https://git.mfiano.net/mfiano/stripe")
+  :bug-tracker "https://git.mfiano.net/mfiano/stripe/issues"
   :encoding :utf-8
   :depends-on (#:dexador
                #:golden-utils
