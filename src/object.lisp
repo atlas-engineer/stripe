@@ -1,4 +1,4 @@
-(in-package #:net.mfiano.lisp.stripe)
+(in-package #:stripe)
 
 (defmacro define-object (name super-classes &body fields)
   (u:with-gensyms (stream)

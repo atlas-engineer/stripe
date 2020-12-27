@@ -1,4 +1,4 @@
-(in-package #:net.mfiano.lisp.stripe)
+(in-package #:stripe)
 
 (define-object payout ()
   id

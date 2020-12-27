@@ -1,8 +1,8 @@
 (in-package #:cl-user)
 
-(defpackage #:net.mfiano.lisp.stripe
+(defpackage #:stripe
   (:local-nicknames
-   (#:u #:net.mfiano.lisp.golden-utils))
+   (#:u #:golden-utils))
   (:use #:cl)
   ;; common
   (:export

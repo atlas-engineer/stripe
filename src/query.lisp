@@ -1,4 +1,4 @@
-(in-package #:net.mfiano.lisp.stripe)
+(in-package #:stripe)
 
 (defun json-boolean-p (x)
   (or (eq x t)

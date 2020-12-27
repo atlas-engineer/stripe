@@ -5,7 +5,7 @@ A client for the Stripe payment API.
 ## Install
 
 ```lisp
-(ql:quickload :net.mfiano.lisp.stripe)
+(ql:quickload :stripe)
 ```
 
 ## License

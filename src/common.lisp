@@ -1,4 +1,4 @@
-(in-package #:net.mfiano.lisp.stripe)
+(in-package #:stripe)
 
 (defvar *base-url* "https://api.stripe.com/v1")
 
