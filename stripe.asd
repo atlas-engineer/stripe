@@ -2,9 +2,7 @@
   :description "A client for the Stripe payment API."
   :author ("Michael Fiano <mail@mfiano.net>")
   :license "MIT"
-  :homepage "https://mfiano.net/projects/stripe"
-  :source-control (:git "https://git.mfiano.net/mfiano/stripe")
-  :bug-tracker "https://git.mfiano.net/mfiano/stripe/issues"
+  :homepage "https://git.mfiano.net/mfiano/stripe"
   :encoding :utf-8
   :depends-on (#:dexador
                #:golden-utils
