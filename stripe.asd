@@ -34,6 +34,7 @@
    (:file "product")
    (:file "refund")
    (:file "return")
+   (:file "session")
    (:file "sku")
    (:file "subscription")
    (:file "subscription-item")

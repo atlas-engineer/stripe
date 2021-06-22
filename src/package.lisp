@@ -335,6 +335,7 @@
    #:create-plan
    #:create-product
    #:create-refund
+   #:create-session
    #:create-sku
    #:create-subscription
    #:create-subscription-item
