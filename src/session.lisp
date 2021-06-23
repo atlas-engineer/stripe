@@ -15,11 +15,6 @@
   payment-status
   success-url)
 
-(defmethod initialize-instance :after ((instance session) &key data
-                                       &allow-other-keys)
-  (reinitialize-instance
-   instance))
-
 (define-query create-session (:type session)
   (:post "checkout/sessions")
   cancel-url
@@ -27,3 +22,6 @@
   mode
   payment-method-types
   success-url)
+
+(define-query retrieve-session (:type session)
+  (:get "checkout/sessions/~a" id))

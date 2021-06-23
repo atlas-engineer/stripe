@@ -234,6 +234,7 @@
    #:payment-intent
    #:payment-method
    #:payment-method-details
+   #:payment-status
    #:payout-method
    #:payout-type
    #:pdf
@@ -393,6 +394,7 @@
    #:retrieve-plan
    #:retrieve-product
    #:retrieve-refund
+   #:retrieve-session
    #:retrieve-sku
    #:retrieve-subscription
    #:retrieve-subscription-item
