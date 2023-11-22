@@ -37,7 +37,7 @@
   (etypecase value
     (json-boolean (encode-type :boolean value))
     (number (encode-type :number value))
-    (string (encode-type :string value))
+    (string value)
     (local-time:timestamp (encode-type :timestamp value))
     (stripe-object (encode-type :object value))))
 
