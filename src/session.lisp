@@ -13,7 +13,8 @@
   payment-intent
   payment-method-types
   payment-status
-  success-url)
+  success-url
+  url)
 
 (define-query create-session (:type session)
   (:post "checkout/sessions")
