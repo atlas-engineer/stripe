@@ -1,8 +1,9 @@
 (asdf:defsystem #:stripe
   :description "A client for the Stripe payment API."
-  :author ("Michael Fiano <mail@mfiano.net>")
+  :author ("Michael Fiano <mail@mfiano.net>"
+           "Atlas Engineer LLC")
   :license "MIT"
-  :homepage "https://git.mfiano.net/mfiano/stripe"
+  :homepage "https://github.com/atlas-engineer/stripe"
   :encoding :utf-8
   :depends-on (#:dexador
                #:golden-utils
