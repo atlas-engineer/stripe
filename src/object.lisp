@@ -6,11 +6,12 @@
                   (lambda (x)
                     (let ((name (u:ensure-list x)))
                       (destructuring-bind (name
-                                           &key (reader name) extra-initargs)
+                                           &key (reader name) (type t) extra-initargs)
                           name
                         `(,(u:symbolicate '#:% name)
                           :reader ,reader
                           :initarg ,(u:make-keyword name)
+                          :type ,type
                           ,@(when extra-initargs
                               `(,@(mapcan
                                    (lambda (x)
