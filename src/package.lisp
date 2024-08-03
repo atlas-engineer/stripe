@@ -1,9 +1,11 @@
 (in-package #:cl-user)
 
 (defpackage #:stripe
-  (:local-nicknames
-   (#:u #:golden-utils))
   (:use #:cl)
+  (:local-nicknames
+   (#:alex #:alexandria)
+   (#:jzon #:com.inuoe.jzon)
+   (#:u #:golden-utils))
   ;; common
   (:export
    #:*api-version*
@@ -250,7 +252,6 @@
    #:pre-paymnt-credit-notes-amount
    #:price
    #:product
-   #:product-type
    #:proration
    #:quantity
    #:reason
@@ -268,6 +269,7 @@
    #:schedule
    #:selected-shipping-method
    #:seller-message
+   #:session
    #:shippable
    #:shipping
    #:shipping-methods
