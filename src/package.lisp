@@ -9,7 +9,8 @@
   ;; common
   (:export
    #:*api-version*
-   #:*api-key*)
+   #:*api-key*
+   #:*webhook-secret*)
   ;; conditions
   (:export
    #:stripe-error
@@ -99,7 +100,11 @@
    #:token-in-use
    #:transfers-not-allowed
    #:upstream-order-creation-failed
-   #:url-invalid)
+   #:url-invalid
+   #:webhook-invalid-header
+   #:webhook-no-valid-signature
+   #:webhook-not-signed
+   #:webhook-timestamp-too-old)
   ;; accessors
   (:export
    #:active
@@ -316,9 +321,15 @@
    #:verified-name
    #:voided-at
    #:wallet
+   #:webhook-event
+   #:webhook-event-type
    #:webhooks-delivered-at
    #:weight
    #:width)
+  (:export
+   #:construct-webhook-event
+   #:parse-signature-header
+   #:validate-webhook-payload)
   ;; requests
   (:export
    #:cancel-payout

@@ -6,6 +6,8 @@
 
 (defvar *api-key*)
 
+(defvar *webhook-secret* "https://docs.stripe.com/webhooks/signatures")
+
 (defun normalize-string (string)
   (substitute #\- #\_ (string-upcase string) :test #'char=))
 

@@ -191,3 +191,11 @@
 (define-condition upstream-order-creation-failed (stripe-error) ())
 
 (define-condition url-invalid (stripe-error) ())
+
+(define-condition webhook-invalid-header (stripe-error) ())
+
+(define-condition webhook-no-valid-signature (stripe-error) ())
+
+(define-condition webhook-not-signed (stripe-error) ())
+
+(define-condition webhook-timestamp-too-old (stripe-error) ())
